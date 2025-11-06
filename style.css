@@ -1,0 +1,59 @@
+/* Basic style for a simple web page */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    background: #e6f2fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 122, 204, 0.08);
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    max-width: 700px;
+}
+header {
+    background: #007acc;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+h1, h2, h3 {
+    color: #007acc;
+}
+
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #eee;
+    color: #555;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+}

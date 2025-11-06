@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iPhone Style Calculator</title>
+    <style>
+        
+        body {
+            background: #222;
+            font-family: 'SF Pro Display', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .calculator {
+            background: #000;
+            border-radius: 40px;
+            box-shadow: 0 8px 40px #000a;
+            width: 320px;
+            padding: 30px 20px 20px 20px;
+        }
+        #display {
+            width: 100%;
+            height: 60px;
+            font-size: 2.5em;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: right;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .btn {
+            height: 60px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 50%;
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:active {
+            background: #444;
+        }
+        .btn.operator {
+            background: #ff9500;
+            color: #fff;
+        }
+        .btn.operator:active {
+            background: #ffa733;
+        }
+        .btn.clear {
+            background: #a5a5a5;
+            color: #000;
+        }
+        .btn.clear:active {
+            background: #cfcfcf;
+        }
+        .btn.zero {
+            grid-column: span 2;
+            border-radius: 30px;
+            text-align: left;
+            padding-left: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button class="btn clear" onclick="clearDisplay()">AC</button>
+            <button class="btn" onclick="append('')"></button>
+            <button class="btn" onclick="append('')"></button>
+            <button class="btn operator" onclick="append('/')">&divide;</button>
+
+            <button class="btn" onclick="append('7')">7</button>
+            <button class="btn" onclick="append('8')">8</button>
+            <button class="btn" onclick="append('9')">9</button>
+            <button class="btn operator" onclick="append('*')">&times;</button>           
+
+            <button class="btn" onclick="append('4')">4</button>
+            <button class="btn" onclick="append('5')">5</button>
+            <button class="btn" onclick="append('6')">6</button>
+            <button class="btn operator" onclick="append('-')">&minus;</button>
+
+            <button class="btn" onclick="append('1')">1</button>
+            <button class="btn" onclick="append('2')">2</button>
+            <button class="btn" onclick="append('3')">3</button>
+            <button class="btn operator" onclick="append('+')">+</button>
+
+            <button class="btn zero" onclick="append('0')">0</button>
+            <button class="btn" onclick="append('.')">.</button>
+            <button class="btn operator" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        function append(char) {
+            document.getElementById('display').value += char;
+        }
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
